@@ -2,6 +2,8 @@ package com.home.UserInfoService.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +13,15 @@ import com.home.UserInfoService.model.User;
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserInfoServiceImpl.class);
+	
 	@Autowired
 	private UserInfoDao userInfoDao;
 
 	@Override
 	public void saveUser(User user) {
+		
+		LOGGER.info("UserInfoServiceImpl.saveUser");
 		userInfoDao.saveUser(user);
 	}
 
